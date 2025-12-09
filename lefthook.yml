@@ -1,0 +1,43 @@
+# Lefthook Git Hooks Configuration for VibeRN
+#
+# @description Automated code quality checks before commits and pushes
+#
+# @ai-guide
+# To modify hooks:
+# - Add new commands under the appropriate hook (pre-commit, pre-push, etc.)
+# - Use `glob` to filter files
+# - Use `run` to specify the command
+# - Use `stage_fixed: true` to auto-stage fixed files
+#
+# To disable a hook temporarily:
+# - Run: LEFTHOOK=0 git commit -m "message"
+#
+# To skip specific hooks:
+# - Run: LEFTHOOK_EXCLUDE=lint git commit -m "message"
+
+pre-commit:
+  parallel: true
+  commands:
+    typecheck:
+      glob: "*.{ts,tsx}"
+      run: npx tsc --noEmit
+      stage_fixed: false
+
+    lint:
+      glob: "*.{ts,tsx}"
+      run: npx eslint {staged_files} --fix
+      stage_fixed: true
+
+    format:
+      glob: "*.{ts,tsx,js,jsx,json,md}"
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
+
+pre-push:
+  parallel: true
+  commands:
+    typecheck:
+      run: npm run typecheck
+
+    lint:
+      run: npm run lint

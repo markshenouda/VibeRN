@@ -1,0 +1,204 @@
+# VibeRN - AI Agent Rules
+
+## Project Overview
+
+VibeRN is a React Native (Expo) starter kit with:
+- Expo Router for navigation (file-based routing in `src/app/`)
+- Design system with light/dark mode
+- Form handling with react-hook-form + zod
+- AsyncStorage hooks for persistence
+- TypeScript with strict mode
+
+## Project Structure
+
+```
+src/
+├── app/                    # Expo Router screens
+│   ├── (tabs)/            # Tab navigation
+│   ├── (auth)/            # Auth flow (login, register)
+│   ├── (examples)/        # Example screens (removable)
+│   ├── details/[id].tsx   # Dynamic routes
+│   └── _layout.tsx        # Root layout
+├── components/
+│   ├── ui/                # Design system primitives
+│   ├── forms/             # Form components with react-hook-form
+│   ├── patterns/          # Common UI patterns
+│   └── templates/         # Screen templates
+├── design-system/
+│   ├── tokens/            # Colors, typography, spacing
+│   ├── theme.ts           # Theme composition
+│   └── ThemeProvider.tsx  # Theme context
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utilities and helpers
+├── constants/             # App configuration
+└── types/                 # TypeScript types
+```
+
+## Code Style
+
+### Imports
+Always use path aliases:
+```typescript
+import { useTheme } from '@/design-system';
+import { Button, Text } from '@/components/ui';
+import { FormInput } from '@/components/forms';
+import { useAsyncStorage } from '@/hooks';
+```
+
+### Components
+- Use functional components with TypeScript
+- Export named components and types
+- Include JSDoc with @ai-guide section
+- Use `useTheme()` for all colors and spacing
+
+```typescript
+/**
+ * ComponentName
+ *
+ * @description Brief description
+ *
+ * @ai-guide
+ * - Key information for AI modification
+ * - Props explanation
+ * - Usage examples
+ */
+export function ComponentName({ prop }: ComponentProps) {
+  const { theme } = useTheme();
+  // ...
+}
+```
+
+### Styling
+- Use `StyleSheet.create()` for static styles
+- Use theme tokens for colors, spacing, radius
+- Avoid inline styles except for dynamic values
+
+```typescript
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // Use theme values in component
+  },
+});
+
+// In component:
+<View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+```
+
+### Forms
+Always use form components with react-hook-form:
+
+```typescript
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { FormInput, loginFormSchema } from '@/components/forms';
+
+const { control, handleSubmit } = useForm({
+  resolver: zodResolver(loginFormSchema),
+});
+
+<FormInput name="email" control={control} label="Email" />
+```
+
+### Navigation
+Use Expo Router hooks:
+
+```typescript
+import { useRouter, Link, useLocalSearchParams } from 'expo-router';
+
+// Navigate
+router.push('/path');
+router.replace('/path');
+router.back();
+
+// Link component
+<Link href="/path">Go</Link>
+
+// Dynamic params
+const { id } = useLocalSearchParams<{ id: string }>();
+```
+
+## Design System
+
+### Colors
+Access via theme:
+```typescript
+const { theme } = useTheme();
+
+theme.colors.primary       // Primary brand color
+theme.colors.background    // Screen background
+theme.colors.surface       // Card/elevated backgrounds
+theme.colors.textPrimary   // Main text
+theme.colors.textSecondary // Secondary text
+theme.colors.error         // Error states
+theme.colors.success       // Success states
+```
+
+### Typography
+Use Text component variants:
+```typescript
+<Text variant="h1">Heading 1</Text>
+<Text variant="body">Body text</Text>
+<Text variant="caption" color="textSecondary">Caption</Text>
+```
+
+### Spacing
+Use theme spacing:
+```typescript
+theme.spacing[2]  // 8px
+theme.spacing[4]  // 16px
+theme.spacing[6]  // 24px
+```
+
+### Components
+Available UI components:
+- `Text`, `Button`, `Input`, `Card`
+- `Avatar`, `Badge`, `Checkbox`, `Switch`
+- `RadioGroup`, `Select`, `Modal`
+- `Skeleton`, `Divider`, `Toast`
+
+## Adding New Features
+
+### New Screen
+1. Create file in `src/app/` following Expo Router conventions
+2. Use the scaffold: `npm run new:screen -- --name=screen-name`
+3. Import from design system and components
+
+### New Component
+1. Create in appropriate folder (`ui/`, `patterns/`, etc.)
+2. Include TypeScript props interface
+3. Add @ai-guide documentation
+4. Export from folder's index.ts
+
+### New Validation Schema
+1. Add to `src/lib/validation.ts`
+2. Use Zod for schema definition
+3. Export the schema and inferred type
+
+## Commands
+
+```bash
+npm run dev              # Start dev server
+npm run lint             # Run ESLint
+npm run typecheck        # TypeScript check
+npm run format           # Format with Prettier
+npm run clean            # Remove example screens
+npm run new:screen       # Scaffold new screen
+npm run generate:icons   # Generate app icons
+npm run generate:splash  # Generate splash screen
+```
+
+## Important Notes
+
+1. **Theme**: Always use `useTheme()` for colors, never hardcode
+2. **Safe Area**: Use `useSafeAreaInsets()` for screen padding
+3. **Forms**: Always use Zod schemas for validation
+4. **Storage**: Use `useAsyncStorage` or `storage` utility
+5. **Navigation**: File-based routing in `src/app/`
+
+## Files to Modify When Customizing
+
+- `app.json` - App name, icons, splash
+- `src/design-system/tokens/colors.ts` - Brand colors
+- `src/constants/config.ts` - API URLs, feature flags
+- `src/app/(tabs)/_layout.tsx` - Tab configuration

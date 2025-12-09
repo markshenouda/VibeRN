@@ -39,3 +39,17 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Editor
+.idea/
+*.swp
+*.swo
+
+# Testing
+coverage/
+
+# Build
+build/
+
+# Lefthook
+.lefthook-local/
