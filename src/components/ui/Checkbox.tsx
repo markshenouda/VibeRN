@@ -96,11 +96,17 @@ export function Checkbox({
     <Pressable style={[styles.container, style]} onPress={handlePress} disabled={disabled}>
       <View style={boxStyle}>
         {checked && (
-          <View style={styles.checkmark}>
-            <Text style={{ color: theme.colors.textInverse, fontSize: 12, fontWeight: 'bold' }}>
-              ✓
-            </Text>
-          </View>
+          <Text
+            style={{
+              color: theme.colors.textInverse,
+              fontSize: 14,
+              fontWeight: 'bold',
+              lineHeight: 14,
+              textAlign: 'center',
+            }}
+          >
+            ✓
+          </Text>
         )}
       </View>
       {label && (
@@ -115,10 +121,6 @@ export function Checkbox({
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
-  },
-  checkmark: {
-    justifyContent: 'center',
     alignItems: 'center',
   },
   label: {

@@ -27,6 +27,7 @@ import {
   Skeleton,
   SkeletonText,
   Divider,
+  Modal,
   useToast,
 } from '@/components/ui';
 import { Header } from '@/components/patterns';
@@ -40,6 +41,9 @@ export default function ComponentsScreen() {
   const [checked, setChecked] = useState(false);
   const [switched, setSwitched] = useState(false);
   const [radioValue, setRadioValue] = useState('option1');
+  const [basicModalVisible, setBasicModalVisible] = useState(false);
+  const [confirmModalVisible, setConfirmModalVisible] = useState(false);
+  const [fullModalVisible, setFullModalVisible] = useState(false);
 
   return (
     <ScrollView
@@ -223,6 +227,83 @@ export default function ComponentsScreen() {
             </Button>
           </View>
         </Section>
+
+        <Divider spacing={16} />
+
+        {/* Modal */}
+        <Section title="Modal">
+          <View style={styles.row}>
+            <Button size="sm" onPress={() => setBasicModalVisible(true)}>
+              Basic Modal
+            </Button>
+            <Button size="sm" variant="outline" onPress={() => setConfirmModalVisible(true)}>
+              Confirm Dialog
+            </Button>
+            <Button size="sm" variant="soft" onPress={() => setFullModalVisible(true)}>
+              Full Screen
+            </Button>
+          </View>
+        </Section>
+
+        {/* Basic Modal */}
+        <Modal
+          visible={basicModalVisible}
+          onClose={() => setBasicModalVisible(false)}
+          title="Basic Modal"
+          size="md"
+        >
+          <Text variant="body" style={{ marginBottom: 16 }}>
+            This is a basic modal with a title and close button. Tap outside or press the close
+            button to dismiss.
+          </Text>
+          <Button onPress={() => setBasicModalVisible(false)}>Close</Button>
+        </Modal>
+
+        {/* Confirmation Modal */}
+        <Modal
+          visible={confirmModalVisible}
+          onClose={() => setConfirmModalVisible(false)}
+          title="Delete Item?"
+          size="sm"
+          closeOnBackdrop={false}
+        >
+          <Text variant="body" style={{ marginBottom: 16 }}>
+            Are you sure you want to delete this item? This action cannot be undone.
+          </Text>
+          <View style={styles.row}>
+            <Button
+              variant="outline"
+              onPress={() => setConfirmModalVisible(false)}
+              style={{ flex: 1 }}
+            >
+              Cancel
+            </Button>
+            <Button
+              color="error"
+              style={{ flex: 1 }}
+              onPress={() => {
+                setConfirmModalVisible(false);
+                show({ message: 'Item deleted!', type: 'success' });
+              }}
+            >
+              Delete
+            </Button>
+          </View>
+        </Modal>
+
+        {/* Full Screen Modal */}
+        <Modal
+          visible={fullModalVisible}
+          onClose={() => setFullModalVisible(false)}
+          title="Full Screen Modal"
+          size="full"
+        >
+          <Text variant="body" style={{ marginBottom: 16 }}>
+            This is a full screen modal. It takes up the entire screen and is useful for complex
+            content like forms or detailed views.
+          </Text>
+          <Button onPress={() => setFullModalVisible(false)}>Close</Button>
+        </Modal>
       </View>
     </ScrollView>
   );

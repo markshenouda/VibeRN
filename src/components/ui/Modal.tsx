@@ -175,9 +175,11 @@ export function Modal({
                 styles.contentContainer,
                 {
                   paddingBottom: size === 'full' ? insets.bottom + 16 : 16,
+                  flexGrow: 1,
                 },
               ]}
               showsVerticalScrollIndicator={false}
+              bounces={false}
             >
               {children}
             </ScrollView>
@@ -217,7 +219,8 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   content: {
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
   },
   contentContainer: {
     padding: 16,

@@ -14,6 +14,7 @@
  * - Button: Multiple variants (solid, outline, ghost, soft)
  * - Input: Text input with label/error support
  * - Card: Container with elevation/outline variants
+ * - Icon: Themed icons from @expo/vector-icons
  * - Avatar: User avatar with initials fallback
  * - Badge: Status/count labels
  * - Checkbox: Selectable checkbox
@@ -31,6 +32,7 @@ export { Text, type TextProps } from './Text';
 export { Button, type ButtonProps } from './Button';
 export { Input, type InputProps } from './Input';
 export { Card, type CardProps } from './Card';
+export { Icon, type IconProps } from './Icon';
 
 // Display components
 export { Avatar, type AvatarProps } from './Avatar';

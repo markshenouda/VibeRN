@@ -5,6 +5,10 @@ A production-ready React Native (Expo) starter kit for vibe coders. Features a c
 ## Quick Start
 
 ```bash
+# Create a new project from this template
+npx degit markshenouda/VibeRN my-app
+cd my-app
+
 # Install dependencies
 npm install
 
