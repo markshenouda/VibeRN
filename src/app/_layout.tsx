@@ -67,7 +67,7 @@ function RootNavigator() {
         {/* Main tab navigator */}
         <Stack.Screen name="(tabs)" />
 
-        {/* Auth screens */}
+        {/* Auth screens - REMOVE WHEN CLEANING PROJECT */}
         <Stack.Screen
           name="(auth)"
           options={{

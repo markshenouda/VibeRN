@@ -1,11 +1,12 @@
 /**
  * Clean Project Script
  *
- * @description Removes example screens and prepares project for production
+ * @description Removes example and auth screens to prepare project for production
  *
  * @ai-guide
  * This script removes:
  * - Example screens in src/app/(examples)/
+ * - Auth screens in src/app/(auth)/
  * - Example tab content (but keeps tab structure)
  * - Demo data and mock content
  *
@@ -19,11 +20,10 @@
  * - Form components and validation
  * - Hooks and utilities
  * - Navigation structure (layouts)
- * - Auth flow structure
  *
  * After running:
  * 1. Update tab screens with your content
- * 2. Modify auth screens with your logic
+ * 2. Add your own auth solution if needed
  * 3. Update app.json with your app details
  */
 
@@ -39,6 +39,9 @@ const APP_DIR = path.join(SRC_DIR, 'app');
 const ITEMS_TO_REMOVE = [
   // Example screens folder
   path.join(APP_DIR, '(examples)'),
+
+  // Auth screens folder
+  path.join(APP_DIR, '(auth)'),
 
   // Plan file
   path.join(ROOT_DIR, 'PLAN.md'),
@@ -180,13 +183,22 @@ const styles = StyleSheet.create({
 `,
 };
 
-// Update root layout to remove examples reference
+// Update root layout to remove examples and auth references
 const ROOT_LAYOUT_UPDATE = {
   file: path.join(APP_DIR, '_layout.tsx'),
   remove: [
     // Remove examples screen registration
     `        {/* Example screens - REMOVE THESE WHEN CLEANING PROJECT */}
         <Stack.Screen name="(examples)" />`,
+    // Remove auth screen registration
+    `        {/* Auth screens - REMOVE WHEN CLEANING PROJECT */}
+        <Stack.Screen
+          name="(auth)"
+          options={{
+            presentation: 'modal',
+            animation: 'slide_from_bottom',
+          }}
+        />`,
   ],
 };
 

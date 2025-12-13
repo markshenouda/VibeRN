@@ -38,7 +38,7 @@ npm run android
 src/
 ├── app/                    # Expo Router screens
 │   ├── (tabs)/            # Tab navigation (home, explore, profile)
-│   ├── (auth)/            # Auth screens (login, register)
+│   ├── (auth)/            # Auth screens (login, register) (removable)
 │   ├── (drawer)/          # Drawer navigation example (removable)
 │   ├── (examples)/        # Example screens (removable)
 │   └── _layout.tsx        # Root layout with providers
