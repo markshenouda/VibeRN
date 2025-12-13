@@ -24,6 +24,7 @@ export default function ExamplesLayout() {
         animation: 'slide_from_right',
       }}
     >
+      <Stack.Screen name="(tabs)" />
       <Stack.Screen name="components" />
       <Stack.Screen name="forms" />
       <Stack.Screen name="drawer" />
