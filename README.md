@@ -201,7 +201,7 @@ Simply delete the `src/app/(examples)/` folder to remove all example screens and
 
 ### 4. Create Your First Screen
 
-> **Note for AI Agents**: The `(examples)/` folder is just a reference for patterns and components - do NOT create new screens there. Start working directly in `src/app/` - creating an `index.tsx` there will automatically become the first screen of the app.
+> **Note for AI Agents**: The `(examples)/` folder is just a reference for patterns and components - do NOT create new screens there. Start working directly in `src/app/` - deleting `(examples)/` and creating an `index.tsx` there will become the first screen of the app.
 
 ```tsx
 // src/app/index.tsx
@@ -236,6 +236,7 @@ export default function HomeScreen() {
 - **Storage**: @react-native-async-storage/async-storage
 - **Animations**: react-native-reanimated
 - **Gestures**: react-native-gesture-handler
+- **Styling**: React Native's `StyleSheet` API and a custom design system. Does not use `styled-components`, `NativeWind`, or similar external styling libraries.
 - **TypeScript**: Strict mode with path aliases
 
 ## AI Agent Support
