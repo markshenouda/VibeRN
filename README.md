@@ -210,12 +210,19 @@ This removes example screens and resets tabs to minimal templates.
 
 ## AI Agent Support
 
-This project includes configuration files for AI assistants:
+This project has robust support for AI agents, providing clear guidelines and configurations to ensure seamless integration and adherence to project standards.
 
-- `.cursor/rules` - Cursor AI rules
-- `.github/copilot-instructions.md` - GitHub Copilot instructions
+For comprehensive guidelines on AI agent interaction, conventions, and operational notes for both the frontend and backend, please refer to:
 
-These files help AI understand the project structure and coding conventions.
+- [All AI Agent Rules](AGENTS.md) - **Essential reading for all AI agents working on this project.**
+
+This project also includes specific configuration files for various AI assistants:
+
+- `.cursor/rules` - General AI rules and best practices for the project.
+- `.gemini/rules.md` - Specific guidelines for the Gemini agent.
+- `.github/copilot-instructions.md` - GitHub Copilot instructions.
+
+These resources help AI understand the project structure and coding conventions, ensuring consistent and high-quality contributions.
 
 ## License
 
