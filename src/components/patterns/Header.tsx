@@ -26,7 +26,7 @@ import { View, Pressable, StyleSheet, ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTheme } from '@/design-system';
-import { Text } from '@/components/ui';
+import { Text, Icon } from '@/components/ui';
 
 export interface HeaderProps {
   /** Header title */
@@ -104,9 +104,7 @@ export function Header({
               style={[styles.backButton, { backgroundColor: theme.colors.backgroundSecondary }]}
               onPress={handleBack}
             >
-              <Text color="textPrimary" style={styles.backIcon}>
-                ←
-              </Text>
+              <Icon name="arrow-back" size="md" color="textPrimary" />
             </Pressable>
           )}
         </View>
@@ -169,9 +167,6 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  backIcon: {
-    fontSize: 20,
   },
   largeTitle: {
     paddingHorizontal: 16,
