@@ -37,6 +37,9 @@ A production-ready React Native (Expo) starter kit for vibe coders. Features a c
 npx degit markshenouda/VibeRN my-app
 cd my-app
 
+# Initialize Git repository
+git init && git add -A && git commit -m "Initial commit"
+
 # Install dependencies
 npm install
 
