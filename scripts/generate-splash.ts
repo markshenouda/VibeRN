@@ -1,11 +1,12 @@
 /**
  * Generate Splash Screen Script
  *
- * @description Generates splash screen image from a source image
+ * @description Generates splash screen images from a source image
  *
  * @ai-guide
  * This script generates:
- * - Splash screen image (optimized for various screen sizes)
+ * - splash.png - Full splash screen with centered logo
+ * - splash-icon.png - Icon used by expo-router splash screen
  *
  * Usage:
  * 1. Place your source logo at assets/images/splash-source.png
@@ -28,8 +29,10 @@ const SOURCE_FILE = path.join(ASSETS_DIR, 'splash-source.png');
 
 // Output configuration
 const OUTPUT_FILE = path.join(ASSETS_DIR, 'splash.png');
+const SPLASH_ICON_FILE = path.join(ASSETS_DIR, 'splash-icon.png');
 const OUTPUT_SIZE = { width: 1284, height: 2778 }; // iPhone 14 Pro Max
 const LOGO_SIZE = 512; // Logo size in the center
+const SPLASH_ICON_SIZE = 200; // Size for splash-icon.png (used by expo-router)
 const BACKGROUND_COLOR = '#6366f1'; // Primary color
 
 async function generateSplash() {
@@ -95,12 +98,27 @@ async function generateSplash() {
     console.log(`     Size: ${OUTPUT_SIZE.width}x${OUTPUT_SIZE.height}`);
     console.log(`     Logo: ${LOGO_SIZE}x${LOGO_SIZE} (centered)`);
     console.log(`     Background: ${BACKGROUND_COLOR}`);
+
+    // Generate splash-icon.png (used by expo-router)
+    await sharp(SOURCE_FILE)
+      .resize(SPLASH_ICON_SIZE, SPLASH_ICON_SIZE, {
+        fit: 'contain',
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
+      })
+      .png()
+      .toFile(SPLASH_ICON_FILE);
+
+    console.log(`  ✅ ${path.relative(ROOT_DIR, SPLASH_ICON_FILE)}`);
+    console.log(`     Size: ${SPLASH_ICON_SIZE}x${SPLASH_ICON_SIZE}`);
   } catch (error) {
     console.log(`  ❌ Error: ${error}`);
     process.exit(1);
   }
 
   console.log('\n✅ Splash screen generation complete!\n');
+  console.log('Generated files:');
+  console.log('  - assets/images/splash.png');
+  console.log('  - assets/images/splash-icon.png\n');
   console.log('To change the background color:');
   console.log('  1. Edit scripts/generate-splash.ts');
   console.log('  2. Update BACKGROUND_COLOR constant');
