@@ -162,12 +162,6 @@ Available UI components:
 
 **IMPORTANT: Always update documentation when adding new features!**
 
-### New Screen
-1. Create file in `src/app/` following Expo Router conventions
-2. Use the scaffold: `npm run new:screen -- --name=screen-name`
-3. Import from design system and components
-4. Update `docs/NAVIGATION.md` if adding new navigation patterns
-
 ### New Component
 1. Create in appropriate folder (`ui/`, `patterns/`, etc.)
 2. Include TypeScript props interface
@@ -205,7 +199,6 @@ npm run lint             # Run ESLint
 npm run typecheck        # TypeScript check
 npm run format           # Format with Prettier
 npm run clean            # Remove example screens
-npm run new:screen       # Scaffold new screen
 npm run generate:icons   # Generate app icons
 npm run generate:splash  # Generate splash screen
 ```

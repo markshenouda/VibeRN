@@ -114,8 +114,7 @@ VibeRN/
 │   ├── clean-project.ts          # Remove example screens
 │   ├── generate-icons.ts         # Generate app icons
 │   ├── generate-splash.ts        # Generate splash screens
-│   ├── setup.ts                  # Initial project setup
-│   └── new-screen.ts             # Scaffold new screen
+│   └── setup.ts                  # Initial project setup
 │
 ├── assets/
 │   ├── fonts/
@@ -309,7 +308,6 @@ npm run format           # Run Prettier
 npm run clean            # Remove example screens
 npm run generate:icons   # Generate app icons from source
 npm run generate:splash  # Generate splash screens
-npm run new:screen       # Scaffold a new screen
 
 # Build
 npm run build:ios        # EAS Build iOS

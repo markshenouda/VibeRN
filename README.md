@@ -156,7 +156,6 @@ npm run check            # Run all checks
 
 # Project Management
 npm run clean            # Remove example screens
-npm run new:screen       # Scaffold new screen
 npm run generate:icons   # Generate app icons
 npm run generate:splash  # Generate splash screen
 ```

@@ -84,33 +84,6 @@ Removes example screens and resets tabs to minimal templates.
 2. Customize tab screens
 3. Update auth screens with your logic
 
-### Generate New Screen
-
-```bash
-npm run new:screen -- --name=screen-name
-npm run new:screen -- --name=screen-name --path=(tabs)
-```
-
-Creates a new screen with boilerplate code.
-
-**Arguments:**
-
-- `--name` (required): Screen name in kebab-case
-- `--path` (optional): Path within `src/app/`
-
-**Examples:**
-
-```bash
-# Create src/app/settings.tsx
-npm run new:screen -- --name=settings
-
-# Create src/app/(tabs)/notifications.tsx
-npm run new:screen -- --name=notifications --path=(tabs)
-
-# Create src/app/products/categories.tsx
-npm run new:screen -- --name=categories --path=products
-```
-
 ### Generate App Icons
 
 ```bash
