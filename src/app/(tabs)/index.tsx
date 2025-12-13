@@ -12,7 +12,7 @@
  * CLEANUP: This file can be modified or replaced with your own home screen.
  */
 
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet, Linking, Pressable } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@/design-system';
@@ -65,7 +65,7 @@ export default function HomeScreen() {
           </Button>
 
           <Button
-            onPress={() => router.push('/(drawer)')}
+            onPress={() => router.push('/(examples)/drawer')}
             variant="outline"
             style={styles.flexButton}
           >
@@ -146,12 +146,24 @@ export default function HomeScreen() {
           </Card>
         </Link>
 
-        <Link href="/(drawer)" asChild>
+        <Link href="/(examples)/drawer" asChild>
           <Card pressable style={styles.linkCard}>
             <Text variant="body">🗂️ Drawer Navigation</Text>
             <Text color="textTertiary">→</Text>
           </Card>
         </Link>
+      </View>
+
+      {/* Footer */}
+      <View style={styles.footer}>
+        <Pressable onPress={() => Linking.openURL('https://github.com/markshenouda/VibeRN')}>
+          <Text variant="bodySmall" color="textSecondary" style={styles.footerText}>
+            Made with love for vibe coders
+          </Text>
+          <Text variant="caption" color="textTertiary" style={styles.footerText}>
+            ⭐ Star us on GitHub if this helped you ship faster
+          </Text>
+        </Pressable>
       </View>
     </ScrollView>
   );
@@ -192,5 +204,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 8,
+  },
+  footer: {
+    alignItems: 'center',
+    paddingTop: 16,
+  },
+  footerText: {
+    textAlign: 'center',
   },
 });

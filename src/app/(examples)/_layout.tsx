@@ -26,6 +26,7 @@ export default function ExamplesLayout() {
     >
       <Stack.Screen name="components" />
       <Stack.Screen name="forms" />
+      <Stack.Screen name="drawer" />
     </Stack>
   );
 }

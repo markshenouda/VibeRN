@@ -88,7 +88,7 @@ export function Header({
   };
 
   const containerStyle: ViewStyle = {
-    paddingTop: insets.top,
+    paddingTop: transparent ? 0 : insets.top,
     backgroundColor: transparent ? 'transparent' : theme.colors.surface,
     borderBottomWidth: transparent ? 0 : 1,
     borderBottomColor: theme.colors.border,

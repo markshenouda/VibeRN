@@ -112,10 +112,7 @@ export default function ForgotPasswordScreen() {
     >
       <ScrollView
         style={{ backgroundColor: theme.colors.background }}
-        contentContainerStyle={[
-          styles.content,
-          { paddingTop: insets.top, paddingBottom: insets.bottom + 16 },
-        ]}
+        contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + 16 }]}
         keyboardShouldPersistTaps="handled"
       >
         <Header showBack onBack={() => router.back()} transparent />

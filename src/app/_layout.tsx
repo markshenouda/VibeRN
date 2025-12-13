@@ -79,9 +79,6 @@ function RootNavigator() {
         {/* Example screens - REMOVE THESE WHEN CLEANING PROJECT */}
         <Stack.Screen name="(examples)" />
 
-        {/* Drawer example - REMOVE WHEN CLEANING PROJECT */}
-        <Stack.Screen name="(drawer)" />
-
         {/* Detail screens */}
         <Stack.Screen
           name="details/[id]"

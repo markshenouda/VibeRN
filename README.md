@@ -39,8 +39,8 @@ src/
 ├── app/                    # Expo Router screens
 │   ├── (tabs)/            # Tab navigation (home, explore, profile)
 │   ├── (auth)/            # Auth screens (login, register) (removable)
-│   ├── (drawer)/          # Drawer navigation example (removable)
-│   ├── (examples)/        # Example screens (removable)
+│   ├── (examples)/        # Example screens including drawer (removable)
+│   │   └── drawer/        # Drawer navigation example
 │   └── _layout.tsx        # Root layout with providers
 ├── components/
 │   ├── ui/                # Design system primitives
