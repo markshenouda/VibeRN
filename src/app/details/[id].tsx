@@ -12,12 +12,12 @@
  * CLEANUP: Keep this pattern but modify for your needs.
  */
 
-import { View, ScrollView, StyleSheet } from 'react-native';
-import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useTheme } from '@/design-system';
-import { Text, Button, Card, Badge, Divider } from '@/components/ui';
 import { Header } from '@/components/patterns';
+import { Badge, Button, Card, Divider, Text } from '@/components/ui';
+import { useTheme } from '@/design-system';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function DetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -88,7 +88,7 @@ export default function DetailScreen() {
           <Button variant="outline" fullWidth onPress={() => router.back()}>
             Go Back
           </Button>
-          <Button fullWidth onPress={() => router.push('/(tabs)')}>
+          <Button fullWidth onPress={() => router.back()}>
             Go Home
           </Button>
         </View>

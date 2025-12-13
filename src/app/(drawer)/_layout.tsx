@@ -16,13 +16,13 @@
  * The clean-project script will remove all files in (drawer)/.
  */
 
-import { View, StyleSheet, Pressable } from 'react-native';
-import { Drawer } from 'expo-router/drawer';
-import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { Button, Icon, Text } from '@/components/ui';
 import { useTheme } from '@/design-system';
-import { Text, Icon, Button } from '@/components/ui';
+import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { useRouter } from 'expo-router';
+import { Drawer } from 'expo-router/drawer';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 /**
  * Custom Drawer Content
@@ -82,7 +82,7 @@ function CustomDrawerContent(props: any) {
         <Button
           variant="ghost"
           size="sm"
-          onPress={() => router.back()}
+          onPress={() => router.dismissAll()}
           leftIcon={<Icon name="arrow-back" size="sm" color="primary" />}
         >
           Exit Drawer
@@ -111,7 +111,7 @@ export default function DrawerLayout() {
         drawerInactiveTintColor: theme.colors.textSecondary,
         drawerActiveBackgroundColor: theme.colors.primaryLight,
         drawerLabelStyle: {
-          marginLeft: -16,
+          marginLeft: 0,
           fontWeight: '500',
         },
         drawerStyle: {
