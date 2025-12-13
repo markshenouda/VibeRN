@@ -32,6 +32,24 @@ npm run android
 - **Developer Experience**: Path aliases, VSCode settings, AI agent rules
 - **Scripts**: Project cleaning, icon generation, screen scaffolding
 
+## Screenshots
+
+### iOS
+
+<p align="center">
+  <img src="assets/screenshots/ios-home.png" width="200" alt="Home Screen (iOS)" />
+  <img src="assets/screenshots/ios-login.png" width="200" alt="Login Screen (iOS)" />
+  <img src="assets/screenshots/ios-dark-mode.png" width="200" alt="Dark Mode (iOS)" />
+</p>
+
+### Android
+
+<p align="center">
+  <img src="assets/screenshots/android-home.png" width="200" alt="Home Screen (Android)" />
+  <img src="assets/screenshots/android-login.png" width="200" alt="Login Screen (Android)" />
+  <img src="assets/screenshots/android-dark-mode.png" width="200" alt="Dark Mode (Android)" />
+</p>
+
 ## Project Structure
 
 ```
