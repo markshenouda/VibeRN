@@ -75,7 +75,7 @@ export default function HomeScreen() {
 
         <View style={styles.buttonRow}>
           <Button
-            onPress={() => router.push('/(auth)/login')}
+            onPress={() => router.push('/(examples)/(auth)/login')}
             variant="ghost"
             style={styles.flexButton}
           >

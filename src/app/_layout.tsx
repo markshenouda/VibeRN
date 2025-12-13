@@ -64,28 +64,8 @@ function RootNavigator() {
           animation: 'slide_from_right',
         }}
       >
-        {/* Main tab navigator */}
-        <Stack.Screen name="(tabs)" />
-
-        {/* Auth screens - REMOVE WHEN CLEANING PROJECT */}
-        <Stack.Screen
-          name="(auth)"
-          options={{
-            presentation: 'modal',
-            animation: 'slide_from_bottom',
-          }}
-        />
-
-        {/* Example screens - REMOVE THESE WHEN CLEANING PROJECT */}
+        {/* Example screens - delete src/app/(examples)/ to remove */}
         <Stack.Screen name="(examples)" />
-
-        {/* Detail screens */}
-        <Stack.Screen
-          name="details/[id]"
-          options={{
-            animation: 'slide_from_right',
-          }}
-        />
 
         {/* Not found */}
         <Stack.Screen name="+not-found" />

@@ -62,7 +62,7 @@ export default function RegisterScreen() {
 
       show({ message: 'Account created successfully!', type: 'success' });
 
-      router.replace('/(tabs)');
+      router.replace('/(examples)/(tabs)');
     } catch (error) {
       show({ message: 'Registration failed. Please try again.', type: 'error' });
     }
@@ -148,7 +148,7 @@ export default function RegisterScreen() {
           <Text variant="body" color="textSecondary">
             Already have an account?{' '}
           </Text>
-          <Link href="/(auth)/login" asChild>
+          <Link href="/login" asChild>
             <Text variant="body" color="primary" style={styles.link}>
               Sign in
             </Text>

@@ -15,7 +15,6 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json}\"",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run lint && npm run format:check",
-    "clean": "tsx scripts/clean-project.ts",
     "generate:icons": "tsx scripts/generate-icons.ts",
     "generate:splash": "tsx scripts/generate-splash.ts",
     "prepare": "lefthook install",

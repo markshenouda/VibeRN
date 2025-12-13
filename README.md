@@ -28,7 +28,7 @@ A production-ready React Native (Expo) starter kit for vibe coders. Features a c
 - **Storage**: AsyncStorage hooks with TypeScript support
 - **Static Testing**: ESLint 9, Prettier, TypeScript strict mode, lefthook
 - **Developer Experience**: Path aliases, VSCode settings, AI agent rules
-- **Scripts**: Project cleaning, icon generation, screen scaffolding
+- **Scripts**: Icon generation, screen scaffolding
 
 ## Quick Start
 
@@ -55,11 +55,15 @@ npm run android
 ```
 src/
 ├── app/                    # Expo Router screens
-│   ├── (tabs)/            # Tab navigation (home, explore, profile)
-│   ├── (auth)/            # Auth screens (login, register) (removable)
-│   ├── (examples)/        # Example screens including drawer (removable)
-│   │   └── drawer/        # Drawer navigation example
-│   └── _layout.tsx        # Root layout with providers
+│   ├── (examples)/        # Example screens (removable)
+│   │   ├── (auth)/        # Auth screens (login, register, forgot-password)
+│   │   ├── (tabs)/        # Tab navigation (home, explore, profile)
+│   │   ├── drawer/        # Drawer navigation example
+│   │   ├── details/       # Dynamic route example
+│   │   ├── components.tsx # Component showcase
+│   │   └── forms.tsx      # Form examples
+│   ├── _layout.tsx        # Root layout with providers
+│   └── +not-found.tsx     # 404 screen
 ├── components/
 │   ├── ui/                # Design system primitives
 │   ├── forms/             # Form components
@@ -155,7 +159,6 @@ npm run format           # Format with Prettier
 npm run check            # Run all checks
 
 # Project Management
-npm run clean            # Remove example screens
 npm run generate:icons   # Generate app icons
 npm run generate:splash  # Generate splash screen
 ```
@@ -191,11 +194,7 @@ export const palette = {
 
 ### 3. Clean Example Screens
 
-```bash
-npm run clean
-```
-
-This removes example screens and resets tabs to minimal templates.
+Simply delete the `src/app/(examples)/` folder to remove all example screens and start fresh.
 
 ## Tech Stack
 

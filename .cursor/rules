@@ -14,12 +14,15 @@ VibeRN is a React Native (Expo) starter kit with:
 ```
 src/
 ├── app/                    # Expo Router screens
-│   ├── (tabs)/            # Tab navigation
-│   ├── (auth)/            # Auth flow (login, register)
-│   ├── (drawer)/          # Drawer navigation example (removable)
 │   ├── (examples)/        # Example screens (removable)
-│   ├── details/[id].tsx   # Dynamic routes
-│   └── _layout.tsx        # Root layout
+│   │   ├── (auth)/        # Auth flow (login, register, forgot-password)
+│   │   ├── (tabs)/        # Tab navigation (home, explore, profile)
+│   │   ├── drawer/        # Drawer navigation example
+│   │   ├── details/[id].tsx # Dynamic routes
+│   │   ├── components.tsx # Component showcase
+│   │   └── forms.tsx      # Form examples
+│   ├── _layout.tsx        # Root layout
+│   └── +not-found.tsx     # 404 screen
 ├── components/
 │   ├── ui/                # Design system primitives
 │   ├── forms/             # Form components with react-hook-form
@@ -34,6 +37,10 @@ src/
 ├── constants/             # App configuration
 └── types/                 # TypeScript types
 ```
+
+### Cleaning the Project
+
+To start fresh, simply delete the `src/app/(examples)/` folder. This removes all example screens while preserving the design system, components, hooks, and utilities.
 
 ## Code Style
 
@@ -198,7 +205,6 @@ npm run dev              # Start dev server
 npm run lint             # Run ESLint
 npm run typecheck        # TypeScript check
 npm run format           # Format with Prettier
-npm run clean            # Remove example screens
 npm run generate:icons   # Generate app icons
 npm run generate:splash  # Generate splash screen
 ```

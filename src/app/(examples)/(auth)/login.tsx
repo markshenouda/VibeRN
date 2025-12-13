@@ -53,7 +53,7 @@ export default function LoginScreen() {
       show({ message: 'Login successful!', type: 'success' });
 
       // Navigate to main app
-      router.replace('/(tabs)');
+      router.replace('/(examples)/(tabs)');
     } catch (error) {
       show({ message: 'Login failed. Please try again.', type: 'error' });
     }
@@ -100,7 +100,7 @@ export default function LoginScreen() {
             autoComplete="password"
           />
 
-          <Link href="/(auth)/forgot-password" asChild>
+          <Link href="/forgot-password" asChild>
             <Text variant="bodySmall" color="primary" style={styles.forgotPassword}>
               Forgot password?
             </Text>
@@ -143,7 +143,7 @@ export default function LoginScreen() {
           <Text variant="body" color="textSecondary">
             Don't have an account?{' '}
           </Text>
-          <Link href="/(auth)/register" asChild>
+          <Link href="/register" asChild>
             <Text variant="body" color="primary" style={styles.link}>
               Sign up
             </Text>

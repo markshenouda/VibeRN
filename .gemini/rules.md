@@ -14,6 +14,7 @@ This document outlines the rules and conventions for using AI assistants, like G
 ### File Structure & Routing
 
 - **Expo Router:** This project uses Expo Router for navigation. All routes and screens are defined within the `src/app` directory. Follow the file-based routing conventions for creating new screens or navigation groups (e.g., `(tabs)`, `(drawer)`).
+- **Example Screens:** All example screens (auth, tabs, drawer, forms, components) are located in `src/app/(examples)/`. To start fresh, simply delete this folder.
 - **Component Organization:**
   - **UI Components (`src/components/ui`):** For small, reusable, and generic UI elements (e.g., `Button`, `Card`, `Input`).
   - **Pattern Components (`src/components/patterns`):** For more complex components that combine multiple UI elements into a recurring pattern (e.g., `Header`, `SearchBar`, `EmptyState`).
