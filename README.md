@@ -2,6 +2,34 @@
 
 A production-ready React Native (Expo) starter kit for vibe coders. Features a complete design system, form handling, navigation patterns, and excellent developer experience.
 
+## Screenshots
+
+### iOS
+
+<p align="center">
+  <img src="assets/screenshots/ios-home.png" width="200" alt="Home Screen (iOS)" />
+  <img src="assets/screenshots/ios-login.png" width="200" alt="Login Screen (iOS)" />
+  <img src="assets/screenshots/ios-dark-mode.png" width="200" alt="Dark Mode (iOS)" />
+</p>
+
+### Android
+
+<p align="center">
+  <img src="assets/screenshots/android-home.png" width="200" alt="Home Screen (Android)" />
+  <img src="assets/screenshots/android-login.png" width="200" alt="Login Screen (Android)" />
+  <img src="assets/screenshots/android-dark-mode.png" width="200" alt="Dark Mode (Android)" />
+</p>
+
+## Features
+
+- **Design System**: Complete token-based design system with light/dark mode
+- **Form Handling**: react-hook-form + zod with pre-built form components
+- **Navigation**: Expo Router with tabs, stacks, drawers, modals, and typed routes
+- **Storage**: AsyncStorage hooks with TypeScript support
+- **Static Testing**: ESLint 9, Prettier, TypeScript strict mode, lefthook
+- **Developer Experience**: Path aliases, VSCode settings, AI agent rules
+- **Scripts**: Project cleaning, icon generation, screen scaffolding
+
 ## Quick Start
 
 ```bash
@@ -21,34 +49,6 @@ npm run ios
 # Run on Android
 npm run android
 ```
-
-## Features
-
-- **Design System**: Complete token-based design system with light/dark mode
-- **Form Handling**: react-hook-form + zod with pre-built form components
-- **Navigation**: Expo Router with tabs, stacks, drawers, modals, and typed routes
-- **Storage**: AsyncStorage hooks with TypeScript support
-- **Static Testing**: ESLint 9, Prettier, TypeScript strict mode, lefthook
-- **Developer Experience**: Path aliases, VSCode settings, AI agent rules
-- **Scripts**: Project cleaning, icon generation, screen scaffolding
-
-## Screenshots
-
-### iOS
-
-<p align="center">
-  <img src="assets/screenshots/ios-home.png" width="200" alt="Home Screen (iOS)" />
-  <img src="assets/screenshots/ios-login.png" width="200" alt="Login Screen (iOS)" />
-  <img src="assets/screenshots/ios-dark-mode.png" width="200" alt="Dark Mode (iOS)" />
-</p>
-
-### Android
-
-<p align="center">
-  <img src="assets/screenshots/android-home.png" width="200" alt="Home Screen (Android)" />
-  <img src="assets/screenshots/android-login.png" width="200" alt="Login Screen (Android)" />
-  <img src="assets/screenshots/android-dark-mode.png" width="200" alt="Dark Mode (Android)" />
-</p>
 
 ## Project Structure
 
