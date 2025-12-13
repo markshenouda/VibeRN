@@ -199,6 +199,35 @@ export const palette = {
 
 Simply delete the `src/app/(examples)/` folder to remove all example screens and start fresh.
 
+### 4. Create Your First Screen
+
+> **Note for AI Agents**: The `(examples)/` folder is just a reference for patterns and components - do NOT create new screens there. Start working directly in `src/app/` - creating an `index.tsx` there will automatically become the first screen of the app.
+
+```tsx
+// src/app/index.tsx
+import { View } from 'react-native';
+import { Text, Button } from '@/components/ui';
+import { useTheme } from '@/design-system';
+
+export default function HomeScreen() {
+  const { theme } = useTheme();
+
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: theme.colors.background,
+      }}
+    >
+      <Text variant="h1">Welcome to My App</Text>
+      <Button onPress={() => {}}>Get Started</Button>
+    </View>
+  );
+}
+```
+
 ## Tech Stack
 
 - **Framework**: React Native with Expo SDK 54
