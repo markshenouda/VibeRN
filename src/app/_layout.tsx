@@ -16,7 +16,6 @@
  * 3. Keep ThemeProvider near the root for theme access
  */
 
-import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -79,6 +78,9 @@ function RootNavigator() {
 
         {/* Example screens - REMOVE THESE WHEN CLEANING PROJECT */}
         <Stack.Screen name="(examples)" />
+
+        {/* Drawer example - REMOVE WHEN CLEANING PROJECT */}
+        <Stack.Screen name="(drawer)" />
 
         {/* Detail screens */}
         <Stack.Screen

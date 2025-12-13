@@ -26,7 +26,7 @@ npm run android
 
 - **Design System**: Complete token-based design system with light/dark mode
 - **Form Handling**: react-hook-form + zod with pre-built form components
-- **Navigation**: Expo Router with tabs, stacks, modals, and typed routes
+- **Navigation**: Expo Router with tabs, stacks, drawers, modals, and typed routes
 - **Storage**: AsyncStorage hooks with TypeScript support
 - **Static Testing**: ESLint 9, Prettier, TypeScript strict mode, lefthook
 - **Developer Experience**: Path aliases, VSCode settings, AI agent rules
@@ -39,6 +39,7 @@ src/
 ├── app/                    # Expo Router screens
 │   ├── (tabs)/            # Tab navigation (home, explore, profile)
 │   ├── (auth)/            # Auth screens (login, register)
+│   ├── (drawer)/          # Drawer navigation example (removable)
 │   ├── (examples)/        # Example screens (removable)
 │   └── _layout.tsx        # Root layout with providers
 ├── components/

@@ -16,6 +16,7 @@ src/
 ├── app/                    # Expo Router screens
 │   ├── (tabs)/            # Tab navigation
 │   ├── (auth)/            # Auth flow (login, register)
+│   ├── (drawer)/          # Drawer navigation example (removable)
 │   ├── (examples)/        # Example screens (removable)
 │   ├── details/[id].tsx   # Dynamic routes
 │   └── _layout.tsx        # Root layout
@@ -159,21 +160,42 @@ Available UI components:
 
 ## Adding New Features
 
+**IMPORTANT: Always update documentation when adding new features!**
+
 ### New Screen
 1. Create file in `src/app/` following Expo Router conventions
 2. Use the scaffold: `npm run new:screen -- --name=screen-name`
 3. Import from design system and components
+4. Update `docs/NAVIGATION.md` if adding new navigation patterns
 
 ### New Component
 1. Create in appropriate folder (`ui/`, `patterns/`, etc.)
 2. Include TypeScript props interface
 3. Add @ai-guide documentation
 4. Export from folder's index.ts
+5. Update `docs/COMPONENTS.md` with component documentation
+
+### New Navigation Pattern (tabs, drawer, stack, modal)
+1. Create the navigation group folder in `src/app/`
+2. Add layout file with proper configuration
+3. Register in root `_layout.tsx`
+4. **Update documentation:**
+   - `README.md` - Project structure and features list
+   - `docs/NAVIGATION.md` - Add pattern to structure and examples
 
 ### New Validation Schema
 1. Add to `src/lib/validation.ts`
 2. Use Zod for schema definition
 3. Export the schema and inferred type
+4. Update `docs/FORMS.md` if adding reusable schemas
+
+### Documentation Requirements
+When adding features, always update:
+- `README.md` - Features list, project structure
+- `docs/NAVIGATION.md` - New routes, navigation patterns, layouts
+- `docs/COMPONENTS.md` - New UI components
+- `docs/FORMS.md` - New form patterns or schemas
+- `docs/DESIGN_SYSTEM.md` - New design tokens or theme changes
 
 ## Commands
 

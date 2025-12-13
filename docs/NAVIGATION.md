@@ -22,6 +22,12 @@ src/app/
 │   ├── login.tsx         # /login
 │   ├── register.tsx      # /register
 │   └── forgot-password.tsx
+├── (drawer)/             # Drawer navigation example (removable)
+│   ├── _layout.tsx       # Drawer layout
+│   ├── index.tsx         # Drawer home
+│   ├── inbox.tsx         # Inbox screen
+│   ├── favorites.tsx     # Favorites screen
+│   └── settings.tsx      # Settings screen
 ├── (examples)/           # Example screens (removable)
 │   └── ...
 └── details/
@@ -196,6 +202,42 @@ export default function AuthLayout() {
 }
 ```
 
+### Drawer Layout
+
+```tsx
+// src/app/(drawer)/_layout.tsx
+import { Drawer } from 'expo-router/drawer';
+
+export default function DrawerLayout() {
+  return (
+    <Drawer>
+      <Drawer.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          drawerLabel: 'Home',
+          drawerIcon: ({ color, size }) => <HomeIcon color={color} size={size} />,
+        }}
+      />
+      <Drawer.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          drawerLabel: 'Settings',
+          drawerIcon: ({ color, size }) => <SettingsIcon color={color} size={size} />,
+        }}
+      />
+    </Drawer>
+  );
+}
+```
+
+**Note:** Drawer navigation requires `@react-navigation/drawer`:
+
+```bash
+npm install @react-navigation/drawer
+```
+
 ## Screen Options
 
 Configure screens in layout:
@@ -253,6 +295,55 @@ Present screens as modals:
     animation: 'slide_from_bottom',
   }}
 />
+```
+
+### Drawer Navigation
+
+Drawer with custom content and theming:
+
+```tsx
+import { Drawer } from 'expo-router/drawer';
+import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView {...props}>
+      {/* Custom header */}
+      <View style={styles.header}>
+        <Text>My App</Text>
+      </View>
+
+      {/* Default drawer items */}
+      <DrawerItemList {...props} />
+
+      {/* Custom footer */}
+      <View style={styles.footer}>
+        <Button onPress={logout}>Logout</Button>
+      </View>
+    </DrawerContentScrollView>
+  );
+}
+
+export default function DrawerLayout() {
+  const { theme } = useTheme();
+
+  return (
+    <Drawer
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      screenOptions={{
+        drawerActiveTintColor: theme.colors.primary,
+        drawerInactiveTintColor: theme.colors.textSecondary,
+        drawerActiveBackgroundColor: theme.colors.primaryLight,
+        drawerStyle: {
+          backgroundColor: theme.colors.background,
+        },
+      }}
+    >
+      <Drawer.Screen name="index" options={{ title: 'Home' }} />
+      <Drawer.Screen name="settings" options={{ title: 'Settings' }} />
+    </Drawer>
+  );
+}
 ```
 
 ### Auth Flow

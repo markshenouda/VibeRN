@@ -65,6 +65,16 @@ export default function HomeScreen() {
           </Button>
 
           <Button
+            onPress={() => router.push('/(drawer)')}
+            variant="outline"
+            style={styles.flexButton}
+          >
+            Drawer
+          </Button>
+        </View>
+
+        <View style={styles.buttonRow}>
+          <Button
             onPress={() => router.push('/(auth)/login')}
             variant="ghost"
             style={styles.flexButton}
@@ -132,6 +142,13 @@ export default function HomeScreen() {
         <Link href="/details/123" asChild>
           <Card pressable style={styles.linkCard}>
             <Text variant="body">📄 Detail Screen</Text>
+            <Text color="textTertiary">→</Text>
+          </Card>
+        </Link>
+
+        <Link href="/(drawer)" asChild>
+          <Card pressable style={styles.linkCard}>
+            <Text variant="body">🗂️ Drawer Navigation</Text>
             <Text color="textTertiary">→</Text>
           </Card>
         </Link>
