@@ -68,7 +68,6 @@ Removes example screens and resets tabs to minimal templates.
 
 - `src/app/(examples)/` folder
 - Example content in tab screens
-- `PLAN.md` file
 
 **What it keeps:**
 

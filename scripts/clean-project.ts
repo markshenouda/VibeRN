@@ -42,9 +42,6 @@ const ITEMS_TO_REMOVE = [
 
   // Auth screens folder
   path.join(APP_DIR, '(auth)'),
-
-  // Plan file
-  path.join(ROOT_DIR, 'PLAN.md'),
 ];
 
 // Files to reset (replace with minimal content)
