@@ -7,7 +7,7 @@ Available npm scripts for development and project management.
 ### Start Development Server
 
 ```bash
-npm run dev
+npm run start
 # or
 npm run start
 ```

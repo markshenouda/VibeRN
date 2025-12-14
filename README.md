@@ -44,7 +44,7 @@ git init && git add -A && git commit -m "Initial commit"
 npm install
 
 # Start development server
-npm run dev
+npm run start
 
 # Run on iOS
 npm run ios
@@ -152,7 +152,7 @@ function Settings() {
 
 ```bash
 # Development
-npm run dev              # Start Expo dev server
+npm run start              # Start Expo dev server
 npm run ios              # Run on iOS
 npm run android          # Run on Android
 

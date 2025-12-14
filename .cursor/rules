@@ -215,7 +215,7 @@ When adding features, always update:
 ## Commands
 
 ```bash
-npm run dev              # Start dev server
+npm run start              # Start dev server
 npm run lint             # Run ESLint
 npm run typecheck        # TypeScript check
 npm run format           # Format with Prettier
