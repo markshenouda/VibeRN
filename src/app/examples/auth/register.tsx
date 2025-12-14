@@ -62,7 +62,7 @@ export default function RegisterScreen() {
 
       show({ message: 'Account created successfully!', type: 'success' });
 
-      router.replace('/(examples)/(tabs)');
+      router.replace('/examples/tabs');
     } catch (error) {
       show({ message: 'Registration failed. Please try again.', type: 'error' });
     }
@@ -78,7 +78,12 @@ export default function RegisterScreen() {
         contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + 16 }]}
         keyboardShouldPersistTaps="handled"
       >
-        <Header showBack onBack={() => router.back()} transparent />
+        <Header
+          showBack
+          onBack={() => router.back()}
+          transparent
+          style={{ paddingTop: insets.top, marginHorizontal: -16 }}
+        />
 
         {/* Header */}
         <View style={styles.header}>
@@ -148,7 +153,7 @@ export default function RegisterScreen() {
           <Text variant="body" color="textSecondary">
             Already have an account?{' '}
           </Text>
-          <Link href="/login" asChild>
+          <Link href="/examples/auth/login" asChild>
             <Text variant="body" color="primary" style={styles.link}>
               Sign in
             </Text>

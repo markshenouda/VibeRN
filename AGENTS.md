@@ -25,7 +25,8 @@ These rules apply specifically when modifying the React Native frontend codebase
 - **Framework:** React Native with Expo.
 - **Navigation:** Expo Router for file-based routing in `src/app/`.
 - **Directory Structure:** Follow the established `src/` directory structure (`app`, `components`, `design-system`, `hooks`, `lib`, `constants`, `types`).
-- **Example Screens:** All example screens are located in `src/app/(examples)/`. To start fresh, delete this folder.
+- **Example Screens:** All example screens are located in `src/app/examples/`. To start fresh, delete this folder.
+- **App Entry Point:** The app uses `src/app/index.tsx` as the entry point, which redirects to `/examples/tabs` by default. Replace this file with your own home screen when ready.
 
 ### Code Style & Conventions
 

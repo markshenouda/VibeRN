@@ -58,9 +58,10 @@ npm run android
 ```
 src/
 ├── app/                    # Expo Router screens
-│   ├── (examples)/        # Example screens (removable)
-│   │   ├── (auth)/        # Auth screens (login, register, forgot-password)
-│   │   ├── (tabs)/        # Tab navigation (home, explore, profile)
+│   ├── index.tsx          # App entry point (currently redirects to examples/tabs)
+│   ├── examples/          # Example screens (removable)
+│   │   ├── auth/          # Auth screens (login, register, forgot-password)
+│   │   ├── tabs/          # Tab navigation (home, explore, profile)
 │   │   ├── drawer/        # Drawer navigation example
 │   │   ├── details/       # Dynamic route example
 │   │   ├── components.tsx # Component showcase
@@ -197,14 +198,27 @@ export const palette = {
 
 ### 3. Clean Example Screens
 
-Simply delete the `src/app/(examples)/` folder to remove all example screens and start fresh.
+Simply delete the `src/app/examples/` folder to remove all example screens and start fresh.
 
 ### 4. Create Your First Screen
 
-> **Note for AI Agents**: The `(examples)/` folder is just a reference for patterns and components - do NOT create new screens there. Start working directly in `src/app/` - deleting `(examples)/` and creating an `index.tsx` there will become the first screen of the app.
+> **Note for AI Agents**: The `examples/` folder is just a reference for patterns and components - do NOT create new screens there. Start working directly in `src/app/`. The current `src/app/index.tsx` redirects to `examples/tabs` - replace it with your own home screen when ready.
+
+The app uses `src/app/index.tsx` as the entry point. By default, it redirects to the examples:
 
 ```tsx
-// src/app/index.tsx
+// src/app/index.tsx (current - redirects to examples)
+import { Redirect } from 'expo-router';
+
+export default function Index() {
+  return <Redirect href="/examples/tabs" />;
+}
+```
+
+To create your own home screen, replace the redirect with your content:
+
+```tsx
+// src/app/index.tsx (your custom home screen)
 import { View } from 'react-native';
 import { Text, Button } from '@/components/ui';
 import { useTheme } from '@/design-system';

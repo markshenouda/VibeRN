@@ -8,11 +8,11 @@
  * The + prefix makes it a special Expo Router file.
  */
 
-import { View, StyleSheet } from 'react-native';
-import { Link, Stack } from 'expo-router';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Text } from '@/components/ui';
 import { useTheme } from '@/design-system';
-import { Text, Button } from '@/components/ui';
+import { Stack } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function NotFoundScreen() {
   const { theme } = useTheme();
@@ -40,10 +40,6 @@ export default function NotFoundScreen() {
         <Text variant="body" color="textSecondary" align="center" style={styles.text}>
           The page you're looking for doesn't exist or has been moved.
         </Text>
-
-        <Link href="/" asChild>
-          <Button style={styles.button}>Go to Home</Button>
-        </Link>
       </View>
     </>
   );

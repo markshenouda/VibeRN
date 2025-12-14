@@ -53,7 +53,7 @@ export default function LoginScreen() {
       show({ message: 'Login successful!', type: 'success' });
 
       // Navigate to main app
-      router.replace('/(examples)/(tabs)');
+      router.replace('/examples/tabs');
     } catch (error) {
       show({ message: 'Login failed. Please try again.', type: 'error' });
     }
@@ -69,7 +69,12 @@ export default function LoginScreen() {
         contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + 16 }]}
         keyboardShouldPersistTaps="handled"
       >
-        <Header showBack onBack={() => router.back()} transparent />
+        <Header
+          showBack
+          onBack={() => router.back()}
+          transparent
+          style={{ paddingTop: insets.top, marginHorizontal: -16 }}
+        />
 
         {/* Header */}
         <View style={styles.header}>
@@ -100,7 +105,7 @@ export default function LoginScreen() {
             autoComplete="password"
           />
 
-          <Link href="/forgot-password" asChild>
+          <Link href="/examples/auth/forgot-password" asChild>
             <Text variant="bodySmall" color="primary" style={styles.forgotPassword}>
               Forgot password?
             </Text>
@@ -143,7 +148,7 @@ export default function LoginScreen() {
           <Text variant="body" color="textSecondary">
             Don't have an account?{' '}
           </Text>
-          <Link href="/register" asChild>
+          <Link href="/examples/auth/register" asChild>
             <Text variant="body" color="primary" style={styles.link}>
               Sign up
             </Text>

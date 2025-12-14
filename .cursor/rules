@@ -14,9 +14,10 @@ VibeRN is a React Native (Expo) starter kit with:
 ```
 src/
 ├── app/                    # Expo Router screens
-│   ├── (examples)/        # Example screens (removable)
-│   │   ├── (auth)/        # Auth flow (login, register, forgot-password)
-│   │   ├── (tabs)/        # Tab navigation (home, explore, profile)
+│   ├── index.tsx          # App entry point (currently redirects to examples/tabs)
+│   ├── examples/          # Example screens (removable)
+│   │   ├── auth/          # Auth flow (login, register, forgot-password)
+│   │   ├── tabs/          # Tab navigation (home, explore, profile)
 │   │   ├── drawer/        # Drawer navigation example
 │   │   ├── details/[id].tsx # Dynamic routes
 │   │   ├── components.tsx # Component showcase
@@ -40,7 +41,20 @@ src/
 
 ### Cleaning the Project
 
-To start fresh, simply delete the `src/app/(examples)/` folder. This removes all example screens while preserving the design system, components, hooks, and utilities.
+To start fresh, simply delete the `src/app/examples/` folder. This removes all example screens while preserving the design system, components, hooks, and utilities.
+
+### App Entry Point
+
+The app uses `src/app/index.tsx` as the entry point. By default, it redirects to `/examples/tabs`. To create your own home screen, replace the redirect with your content:
+
+```tsx
+// src/app/index.tsx (default - redirects to examples)
+import { Redirect } from 'expo-router';
+
+export default function Index() {
+  return <Redirect href="/examples/tabs" />;
+}
+```
 
 ## Code Style
 
@@ -222,4 +236,4 @@ npm run generate:splash  # Generate splash screen
 - `app.json` - App name, icons, splash
 - `src/design-system/tokens/colors.ts` - Brand colors
 - `src/constants/config.ts` - API URLs, feature flags
-- `src/app/(tabs)/_layout.tsx` - Tab configuration
+- `src/app/examples/tabs/_layout.tsx` - Tab configuration

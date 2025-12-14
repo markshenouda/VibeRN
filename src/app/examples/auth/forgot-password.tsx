@@ -89,7 +89,11 @@ export default function ForgotPasswordScreen() {
             </Text>
           </Text>
 
-          <Button onPress={() => router.replace('/login')} fullWidth style={styles.successButton}>
+          <Button
+            onPress={() => router.replace('/examples/auth/login')}
+            fullWidth
+            style={styles.successButton}
+          >
             Back to Login
           </Button>
 
@@ -111,7 +115,12 @@ export default function ForgotPasswordScreen() {
         contentContainerStyle={[styles.content, { paddingBottom: insets.bottom + 16 }]}
         keyboardShouldPersistTaps="handled"
       >
-        <Header showBack onBack={() => router.back()} transparent />
+        <Header
+          showBack
+          onBack={() => router.back()}
+          transparent
+          style={{ paddingTop: insets.top, marginHorizontal: -16 }}
+        />
 
         {/* Header */}
         <View style={styles.header}>

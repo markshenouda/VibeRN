@@ -10,28 +10,31 @@ VibeRN uses Expo Router for file-based navigation. Routes are defined by the fil
 
 ```
 src/app/
+├── index.tsx             # App entry point (currently redirects to examples/tabs)
 ├── _layout.tsx           # Root layout (providers)
 ├── +not-found.tsx        # 404 page
-├── (tabs)/               # Tab navigation group
-│   ├── _layout.tsx       # Tab layout
-│   ├── index.tsx         # Home tab (/)
-│   ├── explore.tsx       # Explore tab (/explore)
-│   └── profile.tsx       # Profile tab (/profile)
-├── (auth)/               # Auth screens group
-│   ├── _layout.tsx       # Auth layout
-│   ├── login.tsx         # /login
-│   ├── register.tsx      # /register
-│   └── forgot-password.tsx
-├── (drawer)/             # Drawer navigation example (removable)
-│   ├── _layout.tsx       # Drawer layout
-│   ├── index.tsx         # Drawer home
-│   ├── inbox.tsx         # Inbox screen
-│   ├── favorites.tsx     # Favorites screen
-│   └── settings.tsx      # Settings screen
-├── (examples)/           # Example screens (removable)
-│   └── ...
-└── details/
-    └── [id].tsx          # Dynamic route (/details/123)
+└── examples/             # Example screens (removable)
+    ├── _layout.tsx       # Examples layout
+    ├── tabs/             # Tab navigation
+    │   ├── _layout.tsx   # Tab layout
+    │   ├── index.tsx     # Home tab (/examples/tabs)
+    │   ├── explore.tsx   # Explore tab (/examples/tabs/explore)
+    │   └── profile.tsx   # Profile tab (/examples/tabs/profile)
+    ├── auth/             # Auth screens
+    │   ├── _layout.tsx   # Auth layout
+    │   ├── login.tsx     # /examples/auth/login
+    │   ├── register.tsx  # /examples/auth/register
+    │   └── forgot-password.tsx
+    ├── drawer/           # Drawer navigation example
+    │   ├── _layout.tsx   # Drawer layout
+    │   ├── index.tsx     # Drawer home
+    │   ├── inbox.tsx     # Inbox screen
+    │   ├── favorites.tsx # Favorites screen
+    │   └── settings.tsx  # Settings screen
+    ├── details/
+    │   └── [id].tsx      # Dynamic route (/examples/details/123)
+    ├── components.tsx    # Component showcase
+    └── forms.tsx         # Form examples
 ```
 
 ## Route Types
@@ -71,14 +74,16 @@ export default function UserScreen() {
 src/app/[...path].tsx → Matches any path
 ```
 
-### Groups
+### Groups (URL Segments)
 
-Parentheses create groups without affecting URL:
+Regular folders create URL segments:
 
 ```
-src/app/(tabs)/index.tsx → /
-src/app/(auth)/login.tsx → /login (not /auth/login)
+src/app/examples/tabs/index.tsx → /examples/tabs
+src/app/examples/auth/login.tsx → /examples/auth/login
 ```
+
+Note: Parentheses `()` can be used to create layout groups without affecting the URL, but this project uses regular folders for clearer route structure.
 
 ## Navigation
 
@@ -132,7 +137,7 @@ import { Redirect } from 'expo-router';
 
 function ProtectedScreen() {
   if (!isLoggedIn) {
-    return <Redirect href="/login" />;
+    return <Redirect href="/examples/auth/login" />;
   }
   return <Content />;
 }
@@ -150,18 +155,34 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <Stack>
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="(auth)" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="index" />
+        <Stack.Screen name="examples" />
+        <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
   );
 }
 ```
 
+### Index Route (App Entry Point)
+
+The `index.tsx` file is the app's entry point. By default, it redirects to the examples:
+
+```tsx
+// src/app/index.tsx
+import { Redirect } from 'expo-router';
+
+export default function Index() {
+  return <Redirect href="/examples/tabs" />;
+}
+```
+
+To create your own home screen, replace the redirect with your content.
+
 ### Tab Layout
 
 ```tsx
-// src/app/(tabs)/_layout.tsx
+// src/app/examples/tabs/_layout.tsx
 import { Tabs } from 'expo-router';
 
 export default function TabLayout() {
@@ -189,7 +210,7 @@ export default function TabLayout() {
 ### Stack Layout
 
 ```tsx
-// src/app/(auth)/_layout.tsx
+// src/app/examples/auth/_layout.tsx
 import { Stack } from 'expo-router';
 
 export default function AuthLayout() {
@@ -205,7 +226,7 @@ export default function AuthLayout() {
 ### Drawer Layout
 
 ```tsx
-// src/app/(drawer)/_layout.tsx
+// src/app/examples/drawer/_layout.tsx
 import { Drawer } from 'expo-router/drawer';
 
 export default function DrawerLayout() {
@@ -276,10 +297,11 @@ export default function SettingsScreen() {
 Most common pattern - tabs with stacks inside:
 
 ```
-(tabs)/
-  index.tsx         # Tab 1 home
-  profile.tsx       # Tab 2 home
-details/[id].tsx    # Pushed on top of tabs
+examples/
+  tabs/
+    index.tsx         # Tab 1 home
+    profile.tsx       # Tab 2 home
+  details/[id].tsx    # Pushed on top of tabs
 ```
 
 ### Modal Flow
@@ -289,7 +311,7 @@ Present screens as modals:
 ```tsx
 // In layout
 <Stack.Screen
-  name="(auth)"
+  name="auth"
   options={{
     presentation: 'modal',
     animation: 'slide_from_bottom',
@@ -351,7 +373,7 @@ export default function DrawerLayout() {
 Protected routes pattern:
 
 ```tsx
-// src/app/(tabs)/_layout.tsx
+// src/app/examples/tabs/_layout.tsx
 import { Redirect } from 'expo-router';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -359,7 +381,7 @@ export default function TabLayout() {
   const { isLoggedIn } = useAuth();
 
   if (!isLoggedIn) {
-    return <Redirect href="/login" />;
+    return <Redirect href="/examples/auth/login" />;
   }
 
   return <Tabs>{/* ... */}</Tabs>;
@@ -409,10 +431,10 @@ router.push('/nonexistent'); // ❌ Type error
 
 ### New Tab Screen
 
-1. Create file in `src/app/(tabs)/`:
+1. Create file in `src/app/examples/tabs/`:
 
    ```tsx
-   // src/app/(tabs)/notifications.tsx
+   // src/app/examples/tabs/notifications.tsx
    export default function NotificationsScreen() {
      return <Text>Notifications</Text>;
    }
@@ -453,7 +475,7 @@ router.push('/nonexistent'); // ❌ Type error
 
 ## Best Practices
 
-1. **Use groups** - Organize related screens
+1. **Organize with folders** - Use regular folders for clear URL structure
 2. **Configure layouts** - Set consistent options
 3. **Type routes** - Enable typedRoutes
 4. **Handle loading** - Show loading during auth checks

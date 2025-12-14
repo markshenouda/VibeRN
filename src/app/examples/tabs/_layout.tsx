@@ -7,7 +7,7 @@
  * This layout defines the bottom tab navigation.
  *
  * To add a new tab:
- * 1. Create a new file in (tabs)/ folder
+ * 1. Create a new file in tabs/ folder
  * 2. Add a Tabs.Screen entry below
  * 3. Configure the icon and title
  *

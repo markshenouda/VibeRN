@@ -123,6 +123,8 @@ theme.typography.styles.h1;
 
 ## Navigation
 
+The app uses `src/app/index.tsx` as the entry point, which redirects to `/examples/tabs` by default. Replace this file with your own home screen when ready.
+
 ```typescript
 import { useRouter, Link } from 'expo-router';
 
@@ -132,7 +134,14 @@ router.replace('/path');
 router.back();
 
 // Dynamic routes
-router.push('/details/123');
+router.push('/examples/details/123');
+
+// Example routes
+router.push('/examples/tabs'); // Home tabs
+router.push('/examples/auth/login'); // Login screen
+router.push('/examples/components'); // Components showcase
+router.push('/examples/forms'); // Forms showcase
+router.push('/examples/drawer'); // Drawer navigation
 ```
 
 ## Validation Schemas

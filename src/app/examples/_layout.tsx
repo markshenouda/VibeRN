@@ -7,7 +7,7 @@
  * This layout wraps example screens that demonstrate components.
  *
  * CLEANUP: Remove this entire folder when cleaning the project.
- * The clean-project script will remove all files in (examples)/.
+ * The clean-project script will remove all files in examples/.
  */
 
 import { Stack } from 'expo-router';
@@ -24,7 +24,7 @@ export default function ExamplesLayout() {
         animation: 'slide_from_right',
       }}
     >
-      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="tabs" />
       <Stack.Screen name="components" />
       <Stack.Screen name="forms" />
       <Stack.Screen name="drawer" />

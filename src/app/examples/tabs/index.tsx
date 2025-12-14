@@ -50,14 +50,14 @@ export default function HomeScreen() {
             {isDark ? '☀️ Light' : '🌙 Dark'}
           </Button>
 
-          <Button onPress={() => router.push('/(examples)/components')} style={styles.flexButton}>
+          <Button onPress={() => router.push('/examples/components')} style={styles.flexButton}>
             Components
           </Button>
         </View>
 
         <View style={styles.buttonRow}>
           <Button
-            onPress={() => router.push('/(examples)/forms')}
+            onPress={() => router.push('/examples/forms')}
             variant="soft"
             style={styles.flexButton}
           >
@@ -65,7 +65,7 @@ export default function HomeScreen() {
           </Button>
 
           <Button
-            onPress={() => router.push('/(examples)/drawer')}
+            onPress={() => router.push('/examples/drawer')}
             variant="outline"
             style={styles.flexButton}
           >
@@ -75,7 +75,7 @@ export default function HomeScreen() {
 
         <View style={styles.buttonRow}>
           <Button
-            onPress={() => router.push('/(examples)/(auth)/login')}
+            onPress={() => router.push('/examples/auth/login')}
             variant="ghost"
             style={styles.flexButton}
           >
@@ -125,28 +125,28 @@ export default function HomeScreen() {
           Examples
         </Text>
 
-        <Link href="/(examples)/components" asChild>
+        <Link href="/examples/components" asChild>
           <Card pressable style={styles.linkCard}>
             <Text variant="body">📦 UI Components</Text>
             <Text color="textTertiary">→</Text>
           </Card>
         </Link>
 
-        <Link href="/(examples)/forms" asChild>
+        <Link href="/examples/forms" asChild>
           <Card pressable style={styles.linkCard}>
             <Text variant="body">📋 Form Examples</Text>
             <Text color="textTertiary">→</Text>
           </Card>
         </Link>
 
-        <Link href="/details/123" asChild>
+        <Link href="/examples/details/123" asChild>
           <Card pressable style={styles.linkCard}>
             <Text variant="body">📄 Detail Screen</Text>
             <Text color="textTertiary">→</Text>
           </Card>
         </Link>
 
-        <Link href="/(examples)/drawer" asChild>
+        <Link href="/examples/drawer" asChild>
           <Card pressable style={styles.linkCard}>
             <Text variant="body">🗂️ Drawer Navigation</Text>
             <Text color="textTertiary">→</Text>

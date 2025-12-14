@@ -16,13 +16,13 @@
  * 3. Keep ThemeProvider near the root for theme access
  */
 
+import { ErrorBoundary } from '@/components/patterns';
+import { ToastProvider } from '@/components/ui';
+import { ThemeProvider, useTheme } from '@/design-system';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { ThemeProvider, useTheme } from '@/design-system';
-import { ToastProvider } from '@/components/ui';
-import { ErrorBoundary } from '@/components/patterns';
 
 /**
  * Root Layout Component
@@ -64,8 +64,7 @@ function RootNavigator() {
           animation: 'slide_from_right',
         }}
       >
-        {/* Example screens - delete src/app/(examples)/ to remove */}
-        <Stack.Screen name="(examples)" />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
 
         {/* Not found */}
         <Stack.Screen name="+not-found" />

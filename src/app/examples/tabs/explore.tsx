@@ -78,7 +78,7 @@ export default function ExploreScreen() {
 
   // Render item
   const renderItem = ({ item }: { item: Item }) => (
-    <Card pressable onPress={() => router.push(`/details/${item.id}`)} style={styles.card}>
+    <Card pressable onPress={() => router.push(`/examples/details/${item.id}`)} style={styles.card}>
       <View style={styles.cardHeader}>
         <Text variant="h5">{item.title}</Text>
         <Badge variant="soft" color="primary" size="sm">

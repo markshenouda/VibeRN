@@ -31,7 +31,7 @@ export default function ProfileScreen() {
       {
         text: 'Logout',
         style: 'destructive',
-        onPress: () => router.replace('/(examples)/(auth)/login'),
+        onPress: () => router.replace('/examples/auth/login'),
       },
     ]);
   };
@@ -66,7 +66,7 @@ export default function ProfileScreen() {
           title="Edit Profile"
           leftElement={<Text>👤</Text>}
           showChevron
-          onPress={() => router.push('/(examples)/forms')}
+          onPress={() => router.push('/examples/forms')}
         />
 
         <ListItem
@@ -121,14 +121,14 @@ export default function ProfileScreen() {
           title="UI Components"
           leftElement={<Text>📦</Text>}
           showChevron
-          onPress={() => router.push('/(examples)/components')}
+          onPress={() => router.push('/examples/components')}
         />
 
         <ListItem
           title="Form Examples"
           leftElement={<Text>📋</Text>}
           showChevron
-          onPress={() => router.push('/(examples)/forms')}
+          onPress={() => router.push('/examples/forms')}
         />
       </View>
 

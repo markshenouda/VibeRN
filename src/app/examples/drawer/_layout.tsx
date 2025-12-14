@@ -13,7 +13,7 @@
  * - Icon support for drawer items
  *
  * CLEANUP: Remove this entire folder when cleaning the project.
- * The clean-project script will remove all files in (examples)/drawer/.
+ * The clean-project script will remove all files in examples/drawer/.
  */
 
 import { Button, Icon, Text } from '@/components/ui';
