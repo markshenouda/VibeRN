@@ -57,28 +57,15 @@ npm run android
 
 ```
 src/
-├── app/                    # Expo Router screens
-│   ├── index.tsx          # App entry point (currently redirects to examples/tabs)
-│   ├── examples/          # Example screens (removable)
-│   │   ├── auth/          # Auth screens (login, register, forgot-password)
-│   │   ├── tabs/          # Tab navigation (home, explore, profile)
-│   │   ├── drawer/        # Drawer navigation example
-│   │   ├── details/       # Dynamic route example
-│   │   ├── components.tsx # Component showcase
-│   │   └── forms.tsx      # Form examples
-│   ├── _layout.tsx        # Root layout with providers
-│   └── +not-found.tsx     # 404 screen
-├── components/
-│   ├── ui/                # Design system primitives
-│   ├── forms/             # Form components
-│   └── patterns/          # Common UI patterns
-├── design-system/
-│   ├── tokens/            # Colors, typography, spacing
-│   └── ThemeProvider.tsx  # Theme context
-├── hooks/                 # Custom React hooks
-├── lib/                   # Utilities and validation
-└── constants/             # App configuration
+├── app/                    # Expo Router screens & layouts
+├── components/             # UI, forms, and pattern components
+├── design-system/          # Theme, tokens, providers
+├── hooks/                  # Custom React hooks
+├── lib/                    # Utilities and validation
+└── constants/              # App configuration
 ```
+
+See [docs/NAVIGATION.md](docs/NAVIGATION.md) for detailed structure.
 
 ## Documentation
 
@@ -90,82 +77,27 @@ src/
 
 ## Usage Examples
 
-### Using the Design System
+See documentation for detailed examples:
+
+- [Design System Guide](docs/DESIGN_SYSTEM.md) - Theme usage and styling
+- [Components Reference](docs/COMPONENTS.md) - All UI components with examples
+- [Form Handling](docs/FORMS.md) - Form validation and components
+
+### Quick Example
 
 ```tsx
 import { useTheme } from '@/design-system';
-import { Text, Button, Card } from '@/components/ui';
+import { Text, Button } from '@/components/ui';
 
 function MyComponent() {
-  const { theme, isDark, toggleTheme } = useTheme();
-
-  return (
-    <Card>
-      <Text variant="h2">Hello World</Text>
-      <Button onPress={toggleTheme}>{isDark ? 'Light Mode' : 'Dark Mode'}</Button>
-    </Card>
-  );
-}
-```
-
-### Form with Validation
-
-```tsx
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { FormInput, loginFormSchema } from '@/components/forms';
-import { Button } from '@/components/ui';
-
-function LoginForm() {
-  const { control, handleSubmit } = useForm({
-    resolver: zodResolver(loginFormSchema),
-  });
-
-  return (
-    <>
-      <FormInput name="email" control={control} label="Email" />
-      <FormInput name="password" control={control} label="Password" secureTextEntry />
-      <Button onPress={handleSubmit(onSubmit)}>Login</Button>
-    </>
-  );
-}
-```
-
-### AsyncStorage Hook
-
-```tsx
-import { useAsyncStorage } from '@/hooks';
-
-function Settings() {
-  const [settings, setSettings] = useAsyncStorage('settings', defaultSettings);
-
-  return (
-    <Switch
-      value={settings.notifications}
-      onValueChange={(value) => setSettings({ ...settings, notifications: value })}
-    />
-  );
+  const { theme } = useTheme();
+  return <Button onPress={handlePress}>Click Me</Button>;
 }
 ```
 
 ## Scripts
 
-```bash
-# Development
-npm run start              # Start Expo dev server
-npm run ios              # Run on iOS
-npm run android          # Run on Android
-
-# Code Quality
-npm run lint             # Run ESLint
-npm run typecheck        # TypeScript check
-npm run format           # Format with Prettier
-npm run check            # Run all checks
-
-# Project Management
-npm run generate:icons   # Generate app icons
-npm run generate:splash  # Generate splash screen
-```
+See [docs/SCRIPTS.md](docs/SCRIPTS.md) for complete list.
 
 ## Customization
 
@@ -202,45 +134,7 @@ Simply delete the `src/app/examples/` folder to remove all example screens and s
 
 ### 4. Create Your First Screen
 
-> **Note for AI Agents**: The `examples/` folder is just a reference for patterns and components - do NOT create new screens there. Start working directly in `src/app/`. The current `src/app/index.tsx` redirects to `examples/tabs` - replace it with your own home screen when ready.
-
-The app uses `src/app/index.tsx` as the entry point. By default, it redirects to the examples:
-
-```tsx
-// src/app/index.tsx (current - redirects to examples)
-import { Redirect } from 'expo-router';
-
-export default function Index() {
-  return <Redirect href="/examples/tabs" />;
-}
-```
-
-To create your own home screen, replace the redirect with your content:
-
-```tsx
-// src/app/index.tsx (your custom home screen)
-import { View } from 'react-native';
-import { Text, Button } from '@/components/ui';
-import { useTheme } from '@/design-system';
-
-export default function HomeScreen() {
-  const { theme } = useTheme();
-
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      <Text variant="h1">Welcome to My App</Text>
-      <Button onPress={() => {}}>Get Started</Button>
-    </View>
-  );
-}
-```
+The app uses `src/app/index.tsx` as the entry point (currently redirects to examples). Replace it with your own home screen when ready. See [docs/NAVIGATION.md](docs/NAVIGATION.md) for detailed examples.
 
 ## Tech Stack
 
@@ -255,19 +149,12 @@ export default function HomeScreen() {
 
 ## AI Agent Support
 
-This project has robust support for AI agents, providing clear guidelines and configurations to ensure seamless integration and adherence to project standards.
+This project includes AI agent guidelines for consistent code generation:
 
-For comprehensive guidelines on AI agent interaction, conventions, and operational notes for both the frontend and backend, please refer to:
-
-- [All AI Agent Rules](AGENTS.md) - **Essential reading for all AI agents working on this project.**
-
-This project also includes specific configuration files for various AI assistants:
-
-- `.cursor/rules` - General AI rules and best practices for the project.
-- `.gemini/rules.md` - Specific guidelines for the Gemini agent.
-- `.github/copilot-instructions.md` - GitHub Copilot instructions.
-
-These resources help AI understand the project structure and coding conventions, ensuring consistent and high-quality contributions.
+- [AI_INSTRUCTIONS.md](AI_INSTRUCTIONS.md) - Master reference for all AI agents
+- [AGENTS.md](AGENTS.md) - Backend/framework-specific rules
+- `.github/copilot-instructions.md` - GitHub Copilot configuration
+- `.gemini/rules.md` - Gemini-specific guidelines
 
 ## License
 

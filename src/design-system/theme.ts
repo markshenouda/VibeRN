@@ -1,26 +1,6 @@
 /**
  * Theme Composition for VibeRN Design System
- *
- * @description Combines all tokens into a unified theme object
- *
- * @ai-guide
- * Theme Structure:
- * - `colors`: Semantic colors (changes based on light/dark mode)
- * - `spacing`: Spacing scale
- * - `radius`: Border radius scale
- * - `shadows`: Shadow definitions
- * - `typography`: Text styles and font settings
- *
- * Usage:
- * ```tsx
- * const { theme } = useTheme();
- * <View style={{ backgroundColor: theme.colors.background }} />
- * ```
- *
- * To extend the theme:
- * 1. Add new tokens to the appropriate token file
- * 2. Include them in the theme object below
- * 3. Update the Theme type
+ * @see docs/DESIGN_SYSTEM.md for usage patterns and customization
  */
 
 import {
@@ -54,37 +34,27 @@ export interface Theme {
   };
 }
 
-// Light theme
-export const lightTheme: Theme = {
-  colors: lightColors,
-  spacing,
-  semanticSpacing,
-  radius,
-  componentRadius,
-  shadows,
-  typography: {
-    styles: textStyles,
-    fonts: fontFamilies,
-    sizes: fontSizes,
-    weights: fontWeights,
-  },
-};
+// Theme factory function to eliminate duplication
+function createTheme(colors: ColorTokens): Theme {
+  return {
+    colors,
+    spacing,
+    semanticSpacing,
+    radius,
+    componentRadius,
+    shadows,
+    typography: {
+      styles: textStyles,
+      fonts: fontFamilies,
+      sizes: fontSizes,
+      weights: fontWeights,
+    },
+  };
+}
 
-// Dark theme
-export const darkTheme: Theme = {
-  colors: darkColors,
-  spacing,
-  semanticSpacing,
-  radius,
-  componentRadius,
-  shadows,
-  typography: {
-    styles: textStyles,
-    fonts: fontFamilies,
-    sizes: fontSizes,
-    weights: fontWeights,
-  },
-};
+// Light and dark themes
+export const lightTheme = createTheme(lightColors);
+export const darkTheme = createTheme(darkColors);
 
 // Theme mode type
 export type ThemeMode = 'light' | 'dark' | 'system';

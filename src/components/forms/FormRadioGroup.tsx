@@ -1,29 +1,6 @@
 /**
- * FormRadioGroup Component
- *
- * @description Radio group component integrated with react-hook-form
- *
- * @ai-guide
- * Props:
- * - `name`: Field name (for react-hook-form)
- * - `control`: Form control from useForm()
- * - `options`: Radio options
- * - `label`: Group label
- *
- * Usage:
- * ```tsx
- * const { control } = useForm();
- *
- * <FormRadioGroup
- *   name="plan"
- *   control={control}
- *   label="Select Plan"
- *   options={[
- *     { value: 'free', label: 'Free' },
- *     { value: 'pro', label: 'Pro' },
- *   ]}
- * />
- * ```
+ * FormRadioGroup - Radio group component integrated with react-hook-form
+ * @see docs/COMPONENT_PATTERNS.md for usage patterns
  */
 
 import React from 'react';
@@ -45,27 +22,6 @@ export interface FormRadioGroupProps<T extends FieldValues> extends Omit<
   containerStyle?: ViewStyle;
 }
 
-/**
- * FormRadioGroup Component
- *
- * Radio group with react-hook-form integration.
- *
- * @example
- * ```tsx
- * const { control } = useForm<SubscriptionForm>();
- *
- * <FormRadioGroup
- *   name="plan"
- *   control={control}
- *   label="Select Your Plan"
- *   options={[
- *     { value: 'free', label: 'Free - $0/month' },
- *     { value: 'pro', label: 'Pro - $9.99/month' },
- *     { value: 'enterprise', label: 'Enterprise - Contact us' },
- *   ]}
- * />
- * ```
- */
 export function FormRadioGroup<T extends FieldValues>({
   name,
   control,

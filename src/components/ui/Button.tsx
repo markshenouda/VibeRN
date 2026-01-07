@@ -1,29 +1,6 @@
 /**
- * Button Component
- *
- * @description Themed button with multiple variants and sizes
- *
- * @ai-guide
- * Props:
- * - `variant`: Visual style (solid, outline, ghost, soft)
- * - `size`: Button size (sm, md, lg)
- * - `color`: Color scheme (primary, secondary, success, warning, error)
- * - `disabled`: Disable button
- * - `loading`: Show loading state
- * - `fullWidth`: Take full container width
- * - `leftIcon`/`rightIcon`: Icon components
- *
- * Usage:
- * ```tsx
- * <Button onPress={handlePress}>Click me</Button>
- * <Button variant="outline" color="secondary">Outline</Button>
- * <Button size="lg" loading>Loading...</Button>
- * ```
- *
- * To customize:
- * - Modify `getButtonStyles` for different styling
- * - Add new variants in the styles object
- * - Adjust sizes in the `sizes` object
+ * Button - Themed button with multiple variants and sizes
+ * @see docs/COMPONENTS.md for full API reference
  */
 
 import React from 'react';

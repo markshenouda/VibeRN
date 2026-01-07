@@ -1,24 +1,6 @@
 /**
- * FormSwitch Component
- *
- * @description Switch component integrated with react-hook-form
- *
- * @ai-guide
- * Props:
- * - `name`: Field name (for react-hook-form)
- * - `control`: Form control from useForm()
- * - `label`: Switch label
- *
- * Usage:
- * ```tsx
- * const { control } = useForm();
- *
- * <FormSwitch
- *   name="notifications"
- *   control={control}
- *   label="Enable notifications"
- * />
- * ```
+ * FormSwitch - Switch component integrated with react-hook-form
+ * @see docs/COMPONENT_PATTERNS.md for usage patterns
  */
 
 import React from 'react';
@@ -36,28 +18,6 @@ export interface FormSwitchProps<T extends FieldValues> extends Omit<
   control: Control<T>;
 }
 
-/**
- * FormSwitch Component
- *
- * Switch component with react-hook-form integration.
- *
- * @example
- * ```tsx
- * const { control } = useForm<SettingsForm>();
- *
- * <FormSwitch
- *   name="notifications"
- *   control={control}
- *   label="Push notifications"
- * />
- *
- * <FormSwitch
- *   name="darkMode"
- *   control={control}
- *   label="Dark mode"
- * />
- * ```
- */
 export function FormSwitch<T extends FieldValues>({
   name,
   control,

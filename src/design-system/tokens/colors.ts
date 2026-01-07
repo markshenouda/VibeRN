@@ -1,24 +1,6 @@
 /**
  * Color Tokens for VibeRN Design System
- *
- * @description Complete color palette with light and dark mode support
- *
- * @ai-guide
- * Color Structure:
- * - `palette`: Raw color values (50-950 scale like Tailwind)
- * - `lightColors` / `darkColors`: Semantic color mappings for each mode
- *
- * To add a new color:
- * 1. Add the color scale to `palette` (use https://uicolors.app for generation)
- * 2. Add semantic mappings to both `lightColors` and `darkColors`
- *
- * To change the primary color:
- * 1. Replace the `primary` object in `palette` with your new color scale
- * 2. The semantic mappings will automatically use the new values
- *
- * Color naming convention:
- * - Use descriptive names for semantic colors (e.g., `textPrimary`, `bgSurface`)
- * - Keep palette names simple (e.g., `primary`, `neutral`)
+ * @see docs/DESIGN_SYSTEM.md for customization guide
  */
 
 // Raw color palette - Indigo/Violet theme
