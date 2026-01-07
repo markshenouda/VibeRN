@@ -1,49 +1,12 @@
-# AI Agent Rules for VibeRN & Associated Services
+# AI Agent Rules for VibeRN
 
-This document outlines the comprehensive conventions, guidelines, and expectations for all AI agents interacting with the VibeRN codebase and its associated backend services. Adhering to these rules ensures consistency, maintainability, and alignment with project standards across all AI-driven modifications.
+> **Primary Reference:** See [AI_INSTRUCTIONS.md](./AI_INSTRUCTIONS.md) for comprehensive AI agent guidelines.
 
----
-
-## 1. Core Mandates for All AI Agents
-
-These mandates apply universally to any AI agent working within this project ecosystem.
-
-- **Conventions:** Rigorously adhere to existing project conventions. Analyze surrounding code, tests, and configuration first.
-- **Libraries/Frameworks:** NEVER assume a library/framework is available. Verify its established usage before employing it.
-- **Style & Structure:** Mimic the style (formatting, naming), structure, and architectural patterns of existing code.
-- **Idiomatic Changes:** Ensure your changes integrate naturally and idiomatically with the local context.
-- **Documentation First:** **Always update relevant documentation** when introducing new features, components, or patterns.
+This document contains agent-specific rules and overrides for the VibeRN project.
 
 ---
 
-## 2. Frontend (VibeRN) Project Guidelines
-
-These rules apply specifically when modifying the React Native frontend codebase.
-
-### Project Overview & Structure
-
-- **Framework:** React Native with Expo.
-- **Navigation:** Expo Router for file-based routing in `src/app/`.
-- **Directory Structure:** Follow the established `src/` directory structure (`app`, `components`, `design-system`, `hooks`, `lib`, `constants`, `types`).
-- **Example Screens:** All example screens are located in `src/app/examples/`. To start fresh, delete this folder.
-- **App Entry Point:** The app uses `src/app/index.tsx` as the entry point, which redirects to `/examples/tabs` by default. Replace this file with your own home screen when ready.
-
-### Code Style & Conventions
-
-- **Imports:** Always use path aliases (e.g., `@/design-system`, `@/components/ui`).
-- **Components:** Use functional components with TypeScript and include a JSDoc `@ai-guide` section for modification instructions.
-- **Styling:** Always use `useTheme()` for accessing design tokens (colors, spacing, etc.). **Never hardcode style values.**
-- **Forms:** Use components integrated with `react-hook-form` and `zod` for validation.
-
-### Operational Notes
-
-- **Safe Area:** Use `useSafeAreaInsets()` for screen padding.
-- **Storage:** Use the `useAsyncStorage` hook for persistent storage.
-- **Quality Checks:** Ensure all changes pass `npm run typecheck`, `npm run lint`, and `npm run format`.
-
----
-
-## 3. Backend & Agent Framework Guidelines
+## Backend & Agent Framework Guidelines
 
 This section details configurations and specific rules for the Python-based agent framework that powers backend services.
 
@@ -70,21 +33,3 @@ The Claude agent integration has two primary implementations: a direct API clien
 ### Gemini Agent
 
 The Gemini agent adheres to the general framework principles. The `.gemini/rules.md` file serves as a foundational guide for Gemini's interaction patterns, reinforcing the core mandates and project-specific guidelines.
-
----
-
-## 4. Git & Quality Control
-
-The project uses automated checks to ensure code quality before commits and pushes.
-
-### ESLint (`eslint.config.mjs`)
-
-- AI agents must generate code that adheres to the project's ESLint rules. Key rules include warnings for `no-unused-vars` and errors for `react-hooks/rules-of-hooks`.
-- Agents should not modify files listed in the `ignores` array.
-
-### Git Hooks (`lefthook.yml`)
-
-- **Pre-commit:** Automatically runs type-checking (`tsc`), linting (`eslint --fix`), and formatting (`prettier --write`).
-- **Pre-push:** Runs a final check for types and linting across the project.
-
-Agents should aim to generate code that passes these checks to ensure a smooth development workflow.
