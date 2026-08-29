@@ -32,7 +32,7 @@
  */
 
 import React from 'react';
-import { StyleProp, TextStyle } from 'react-native';
+import { ColorValue, StyleProp, TextStyle } from 'react-native';
 import {
   Ionicons,
   MaterialCommunityIcons,
@@ -86,8 +86,8 @@ type MaterialIconsName = keyof typeof MaterialIcons.glyphMap;
 export type IconProps = {
   /** Icon size - preset name or number */
   size?: IconSize | number;
-  /** Theme color name or custom color string */
-  color?: ThemeColor | string;
+  /** Theme color name or custom color value */
+  color?: ThemeColor | ColorValue;
   /** Additional styles */
   style?: StyleProp<TextStyle>;
   /** Test ID for testing */
@@ -165,8 +165,9 @@ export function Icon({
     textInverse: theme.colors.textInverse,
   };
 
-  // Resolve color - check if it's a theme color or custom string
-  const resolvedColor = color in themeColors ? themeColors[color as ThemeColor] : color;
+  // Resolve color - check if it's a theme color or pass through raw color value
+  const resolvedColor =
+    typeof color === 'string' && color in themeColors ? themeColors[color as ThemeColor] : color;
 
   // Get the icon component for the family
   const IconComponent = IconComponents[family];

@@ -14,7 +14,7 @@ These apply universally to any AI agent working within this project:
 
 ## Project Context
 
-**Framework:** React Native with Expo
+**Framework:** React Native with Expo (SDK 57, React Native 0.86, React 19.2)
 **Navigation:** Expo Router for file-based routing (`src/app/`)
 **Language:** TypeScript with strict mode
 **Forms:** react-hook-form + zod for validation
@@ -195,20 +195,6 @@ Update the relevant docs:
 - `docs/FORMS.md` - New form patterns or validation schemas
 - `docs/DESIGN_SYSTEM.md` - New design tokens or theme changes
 
-## Backend & Agent Framework (Python)
+## Skills
 
-### General Framework Principles
-
-- **LLM Registration:** Language models are treated as classes and must be registered with `LLMRegistry`
-- **Settings Management:** Application-wide settings are managed via database-backed `Setting` model
-
-### Claude Agent
-
-- **Configuration:** Requires `Claude_API_KEY` or Vertex AI setup (`GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION`)
-- **Model Specification:** Must provide model name (e.g., `claude-3-5-sonnet-v2@20241022`)
-- **Prompting:** Uses strict conversational format, alternating between `Human:` and `Assistant:`
-- **Tool Usage:** Vertex AI implementation supports function calling
-
-### Gemini Agent
-
-Adheres to general framework principles. See `.gemini/rules.md` for specific interaction patterns.
+Reusable project skills live in `.agents/skills/` using the portable `SKILL.md` format. They are read by all agents that support `.agents/skills/` (Claude Code, Cursor, Codex, Cline, Gemini CLI, GitHub Copilot, etc.). Invoke them for the workflows they describe.

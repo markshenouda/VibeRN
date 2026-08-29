@@ -138,8 +138,8 @@ The app uses `src/app/index.tsx` as the entry point (currently redirects to exam
 
 ## Tech Stack
 
-- **Framework**: React Native with Expo SDK 54
-- **Navigation**: Expo Router 6
+- **Framework**: React Native with Expo SDK 57 (React Native 0.86, React 19.2)
+- **Navigation**: Expo Router (file-based routing)
 - **Forms**: react-hook-form + zod
 - **Storage**: @react-native-async-storage/async-storage
 - **Animations**: react-native-reanimated
@@ -149,12 +149,11 @@ The app uses `src/app/index.tsx` as the entry point (currently redirects to exam
 
 ## AI Agent Support
 
-This project includes AI agent guidelines for consistent code generation:
+This project ships a universal AI-agent setup that works across Claude Code, Cursor, Codex, Cline, Gemini CLI, GitHub Copilot, and more:
 
-- [AI_INSTRUCTIONS.md](AI_INSTRUCTIONS.md) - Master reference for all AI agents
-- [AGENTS.md](AGENTS.md) - Backend/framework-specific rules
-- `.github/copilot-instructions.md` - GitHub Copilot configuration
-- `.gemini/rules.md` - Gemini-specific guidelines
+- [AGENTS.md](AGENTS.md) - Canonical, universal agent rules (read by all agents)
+- [AI_INSTRUCTIONS.md](AI_INSTRUCTIONS.md) - Master reference for the full project guide
+- `.agents/skills/` - Portable, reusable project skills (`SKILL.md` format, skills.sh compatible): `add-component`, `add-form-screen`, `add-navigation-screen`, `generate-icons`, `generate-splash`
 
 ## License
 

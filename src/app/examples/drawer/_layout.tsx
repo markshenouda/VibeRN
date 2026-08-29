@@ -18,9 +18,8 @@
 
 import { Button, Icon, Text } from '@/components/ui';
 import { useTheme } from '@/design-system';
-import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { useRouter } from 'expo-router';
-import { Drawer } from 'expo-router/drawer';
+import { Drawer, DrawerContentScrollView, DrawerItemList } from 'expo-router/drawer';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

@@ -2,19 +2,18 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/ui/*": ["src/components/ui/*"],
-      "@/forms/*": ["src/components/forms/*"],
-      "@/patterns/*": ["src/components/patterns/*"],
-      "@/templates/*": ["src/components/templates/*"],
-      "@/design-system/*": ["src/design-system/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/lib/*": ["src/lib/*"],
-      "@/constants/*": ["src/constants/*"],
-      "@/types/*": ["src/types/*"]
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/ui/*": ["./src/components/ui/*"],
+      "@/forms/*": ["./src/components/forms/*"],
+      "@/patterns/*": ["./src/components/patterns/*"],
+      "@/templates/*": ["./src/components/templates/*"],
+      "@/design-system/*": ["./src/design-system/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/types/*": ["./src/types/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]

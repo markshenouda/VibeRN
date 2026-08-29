@@ -9,7 +9,7 @@ This document summarizes the context optimization changes made to reduce LLM tok
 #### Master AI Instructions File
 
 - **Created:** `AI_INSTRUCTIONS.md` - Master reference consolidating all AI agent guidelines
-- **Updated:** `AGENTS.md` - Now references master file with only backend-specific overrides
+- **Updated:** `AGENTS.md` - Now the canonical universal entry point referencing the master file (backend-specific overrides removed — no such backend exists in the repo)
 - **Updated:** `.github/copilot-instructions.md` - Streamlined to quick reference with link to master
 - **Updated:** `.gemini/rules.md` - Minimal file referencing master instructions
 
